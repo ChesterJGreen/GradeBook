@@ -20,39 +20,45 @@ namespace GradeBook.GradeBooks
             var BStudents = 0;
             var CStudents = 0;
             var DStudents = 0;
-            var FStudents = 0;
-            var SectionOfStudents = 0;
             if (Students.Count < 5)
             {
                 throw new InvalidOperationException();
             }
             var MaxStudentsPerSection = Students.Count / 5;
-            if (Student student.AverageGrade.Equals > 80)
-
-
-
             
-            if (averageGrade >= .8)
+            // var MaxGradeAverage = Student Student.AverageGrade.Max();
+                // I'm trying to find the max and minimum values in the averageGrade column of the students class. to know where to define the sections at
+            if (averageGrade >= 80 && AStudents < MaxStudentsPerSection)
             {
+                AStudents++;
                 return GetLetterGrade('A');
             }
-            else if(averageGrade >= .6 && averageGrade <.8)
+            if (averageGrade >= 60 && averageGrade < 80 && BStudents < MaxStudentsPerSection)
             {
+                BStudents++;
                 return GetLetterGrade('B');
             }
-            else if(averageGrade >= .4 && averageGrade <.6)
+            if (averageGrade >= 40 && averageGrade < 60 && CStudents < MaxStudentsPerSection)
             {
+                CStudents++;
                 return GetLetterGrade('C');
             }
-            else if(averageGrade >= .2 && averageGrade <.4)
+            if (averageGrade >= 20 && averageGrade < 40 && DStudents < MaxStudentsPerSection)
             {
+                DStudents++;
                 return GetLetterGrade('D');
             }
-           
-            return base.GetLetterGrade('F');
+            return GetLetterGrade('F');
         }
-        
-
+        public override CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                    return;
+            }
+            base.CalculateStatistics();
+        }
     }
 }
     
