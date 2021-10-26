@@ -7,20 +7,15 @@ namespace GradeBook.GradeBooks
 {
     public class RankedGradeBook : BaseGradeBook
     {
-        private readonly BaseGradeBook ranked;
-        public new string Name { get; set; }
-        public new BaseGradeBook Type { get; set; }
         public RankedGradeBook(string name) : base(name)
         {
-            Name = name;
-            Type = ranked;
+            Type = Enums.GradeBookType.Ranked;
         }
+
         public override char GetLetterGrade(double averageGrade)
         {
-            var AStudents = 0;
-            var BStudents = 0;
-            var CStudents = 0;
-            var DStudents = 0;
+            
+           
             if (Students.Count < 5)
             {
                 throw new InvalidOperationException();
@@ -100,6 +95,7 @@ namespace GradeBook.GradeBooks
                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
                 return;
             }
+
             base.CalculateStatistics();
         }
         public override void CalculateStudentStatistics(string name)
@@ -111,6 +107,7 @@ namespace GradeBook.GradeBooks
                 Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate at student's overall grade.");
                 return;
             }
+
             base.CalculateStudentStatistics(name);
         }
     }

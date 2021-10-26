@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace GradeBook.GradeBooks
 {
-    public class BaseGradeBook
+    public abstract class BaseGradeBook
     {
         private readonly BaseGradeBook ranked;
         public string Name { get; set; }
