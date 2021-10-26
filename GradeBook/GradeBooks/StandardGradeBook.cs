@@ -5,16 +5,15 @@ namespace GradeBook.GradeBooks
 {
     public class StandardGradeBook : BaseGradeBook
     {
-        private readonly BaseGradeBook standard;
 
-        public StandardGradeBook(string name, string type) : base(name)
+
+        public StandardGradeBook(string name) : base(name, isWeighted)
         {
-            Name = name;
-            Type = standard;
+            IsWeighted = this.Student.IsWeighted;
+           Type = Enums.GradeBookType.Standard;
         }
 
-        public new string Name { get; set; }
-        public new BaseGradeBook Type { get; set; }
+       
 
         
 

@@ -100,7 +100,7 @@ namespace GradeBook.GradeBooks
         }
         public override void CalculateStudentStatistics(string name)
         {
-            int isStudentGrades = this.Students.Count(student => student.AverageGrade != null);
+            int isStudentGrades = this.Students.Count(student => student.AverageGrade != 0);
 
                if (isStudentGrades <5)
             {
