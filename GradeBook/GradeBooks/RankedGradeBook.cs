@@ -15,8 +15,6 @@ namespace GradeBook.GradeBooks
 
         public override char GetLetterGrade(double averageGrade)
         {
-            
-           
             if (Students.Count < 5)
             {
                 throw new InvalidOperationException();
@@ -46,7 +44,7 @@ namespace GradeBook.GradeBooks
             {
                 case 0:
                     return 'A';
-                case 1: 
+                case 1:
                     return 'B';
                 case 2:
                     return 'C';
@@ -57,38 +55,8 @@ namespace GradeBook.GradeBooks
                 default:
                     throw new IndexOutOfRangeException();
             }
-            /*
-            List<Student> sortedStudentsByGrade = new List<Student>();
-            sortedStudentsByGrade.AddRange(this.Students);
-            sortedStudentsByGrade.Sort((x, y) => x.AverageGrade.CompareTo(y.AverageGrade));
-           
-            // determine where the input average grade would fall in the sorted list (aka: how many students did better than the iput)
-            
-
-            // var MaxGradeAverage = Student Student.AverageGrade.Max();
-            // I'm trying to find the max and minimum values in the averageGrade column of the students class. to know where to define the sections at
-            if (sortedStudentsByGrade >= 80 && AStudents < MaxStudentsPerSection)
-            {
-                AStudents++;
-                return GetLetterGrade('A');
-            }
-            if (averageGrade >= 60 && averageGrade < 80 && BStudents < MaxStudentsPerSection)
-            {
-                BStudents++;
-                return GetLetterGrade('B');
-            }
-            if (averageGrade >= 40 && averageGrade < 60 && CStudents < MaxStudentsPerSection)
-            {
-                CStudents++;
-                return GetLetterGrade('C');
-            }
-            if (averageGrade >= 20 && averageGrade < 40 && DStudents < MaxStudentsPerSection)
-            {
-                DStudents++;
-                return GetLetterGrade('D');
-            }
-            return GetLetterGrade('F');*/
         }
+            
         public override void CalculateStatistics()
         {
             if (Students.Count < 5)
@@ -103,13 +71,14 @@ namespace GradeBook.GradeBooks
         {
             int isStudentGrades = this.Students.Count(student => student.AverageGrade != 0);
 
-               if (isStudentGrades <5)
+            if (isStudentGrades < 5)
             {
-                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate at student's overall grade.");
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
                 return;
             }
-
-            base.CalculateStudentStatistics(name);
+                    
+                base.CalculateStudentStatistics(name);
+            
         }
     }
 }
