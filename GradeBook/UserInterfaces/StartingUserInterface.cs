@@ -45,7 +45,7 @@ namespace GradeBook.UserInterfaces
             bool weight;
                  
        
-            if (Boolean.TryParse(parts[3], out weight))
+            if (Boolean.TryParse(parts[3], out weight) == false)
             {
                 Console.Write("Is Weighted must be a true or false response");
                 return;
